@@ -3,77 +3,34 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>KENCANAMARKET</title>
-  <style>
-    :root{--p:#0f766e;--a:#f59e0b;--bg:#f8fafc;--t:#1e293b;--m:#64748b;--b:#e2e8f0;--d:#dc2626}
-    *{box-sizing:border-box;margin:0;padding:0;font-family:sans-serif}
-    body{background:var(--bg);color:var(--t);padding-bottom:60px}
-    header{background:var(--p);color:#fff;padding:12px 16px;position:sticky;top:0;z-index:99}
-    .ht{display:flex;justify-content:space-between;align-items:center}
-    .brand{font-weight:800;font-size:1.1rem}
-    .brand span{background:var(--a);color:#000;padding:2px 6px;border-radius:5px}
-    .ha button{background:rgba(255,255,255,.2);border:1px solid rgba(255,255,255,.3);color:#fff;padding:6px 10px;border-radius:8px;font-weight:600;font-size:.8rem}
-    .ha button.sell{background:var(--a);color:#000;border:none}
-    nav{background:#fff;border-bottom:1px solid var(--b);padding:8px;display:flex;flex-wrap:wrap;gap:5px;justify-content:center}
-    .nb{background:#f1f5f9;border:1px solid var(--b);padding:6px 9px;border-radius:8px;font-size:.78rem;font-weight:600;color:var(--t)}
-    .nb.act{background:var(--p);color:#fff;border-color:var(--p)}
-    .box{max-width:1000px;margin:14px auto;padding:0 14px}
-    .hero{background:var(--p);color:#fff;padding:16px;border-radius:12px;margin-bottom:14px}
-    .hero h1{font-size:1.25rem;margin-bottom:4px}
-    .hero p{font-size:.85rem;opacity:.9;margin-bottom:10px}
-    .sb{display:flex;gap:6px;flex-wrap:wrap}
-    .sb input,.sb select{padding:9px;border-radius:8px;border:none;font-size:.88rem;flex:1}
-    .ad{background:#f1f5f9;border:1px dashed #94a3b8;border-radius:10px;padding:10px;text-align:center;margin:12px 0;font-size:.82rem;color:var(--m)}
-    .st{font-weight:700;font-size:1rem;margin:12px 0 8px;display:flex;justify-content:space-between;align-items:center}
-    .grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(220px,1fr));gap:12px}
-    .card{background:#fff;border:1px solid var(--b);border-radius:10px;overflow:hidden;position:relative}
-    .cimg-wrap{position:relative;width:100%;height:155px;background:#e2e8f0}
-    .cimg{width:100%;height:155px;object-fit:cover;display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--m)}
-    .sold-tag{position:absolute;inset:0;background:rgba(15,23,42,.68);color:#fff;display:flex;align-items:center;justify-content:center;font-weight:800;font-size:1rem}
-    .gal-btn{position:absolute;bottom:6px;right:6px;background:rgba(0,0,0,.65);color:#fff;border:none;padding:3px 7px;border-radius:6px;font-size:.7rem}
-    .cb{padding:10px}
-    .bg{font-size:.66rem;font-weight:700;padding:2px 6px;border-radius:4px;background:#dcfce7;color:#166534;display:inline-block;margin:0 3px 4px 0}
-    .bg-n{background:#fef3c7;color:#b45309}.bg-c{background:#e0f2fe;color:#0369a1}.bg-b{background:#f3e8ff;color:#6b21a8}.bg-s{background:#fee2e2;color:#dc2626}
-    .pr{color:var(--p);font-weight:800;margin:4px 0}
-    .btn{padding:7px 10px;border-radius:7px;border:none;font-weight:600;font-size:.82rem;cursor:pointer;width:100%;margin-top:5px}
-    .b-wa{background:#16a34a;color:#fff}.b-off{background:#94a3b8;color:#fff}.b-out{background:#fff;border:1px solid var(--b);color:var(--t)}.b-del{background:#fee2e2;color:var(--d)}.b-sold{background:#fef3c7;color:#92400e}
-    .row{display:flex;gap:5px;margin-top:5px}
-    .pcard{background:#fff;border:1px solid var(--b);border-radius:10px;padding:12px;margin-bottom:10px}
-    .mod{display:none;position:fixed;inset:0;background:rgba(0,0,0,.5);z-index:200;align-items:center;justify-content:center;padding:14px}
-    .mod.open{display:flex}
-    .mbox{background:#fff;border-radius:12px;max-width:460px;width:100%;max-height:88vh;overflow-y:auto;padding:16px}
-    .mh{display:flex;justify-content:space-between;margin-bottom:10px;font-weight:700}
-    .fg{margin-bottom:9px}
-    .fg label{display:block;font-size:.8rem;font-weight:600;margin-bottom:3px}
-    .fg input,.fg select,.fg textarea{width:100%;padding:8px;border:1px solid var(--b);border-radius:7px;font-size:.88rem}
-    .cmt{background:#f8fafc;border:1px solid var(--b);border-radius:8px;padding:8px;margin-bottom:6px;font-size:.83rem}
-    .ai-u{background:#e0f2fe;padding:8px;border-radius:8px;margin-bottom:6px;font-size:.83rem;text-align:right}
-    .ai-b{background:#f0fdf4;border:1px solid #bbf7d0;padding:8px;border-radius:8px;margin-bottom:6px;font-size:.83rem}
-    .hid{display:none!important}.star{color:#f59e0b;font-weight:700}.slink{color:#0f766e;font-weight:700;text-decoration:underline}
-  </style>
+  <meta name="google-site-verification" content="3kACmXsb61Y-FQ795t4v3myDTo9kFaj34H_EaQu9n2I" />
+  <title>KENCANAMARKET — Satu Pasar, Banyak Peluang</title>
+  <link rel="stylesheet" href="style.css" />
+  <script src="https://jsdelivr.net"></script>
 </head>
 <body>
 <header>
   <div class="ht">
-  <div class="brand" onclick="tapLogo()"><span>K</span> KENCANAMARKET</div>
+    <div class="brand" onclick="tapLogo()"><span>K</span> KENCANAMARKET</div>
     <div class="ha"><button id="uBtn" onclick="om('mAuth')">👤 Akun</button> <button class="sell" onclick="openSell()">+ Jual</button></div>
   </div>
 </header>
 <nav>
   <button class="nb act" onclick="tab('home',this)">🏠 Beranda</button>
-  <button class="nb" onclick="tab('new',this)">🆕 Terbaru</button>
-  <button class="nb" onclick="tab('news',this)">📰 Berita</button>
+  <button class="nb" onclick="tab('new',this)">🆕 Produk Terbaru</button>
+  <button class="nb" onclick="tab('news',this)">📰 Kabar & Promo</button>
   <button class="nb" onclick="tab('rank',this)">🏆 Toko Terbaik</button>
   <button class="nb" onclick="om('mAds')">📢 Pasang Iklan</button>
   <button class="nb" onclick="om('mHelp')">🎧 Bantuan & Pengaduan</button>
   <button class="nb" onclick="om('mAuth')">👤 Akun</button>
-  <button class="nb" onclick="tab('priv',this)">🛡️ Privasi</button>
+  <button class="nb" onclick="tab('priv',this)">🛡️ Privasi & Ketentuan</button>
 </nav>
+
 <div class="box">
   <div id="t-home">
     <div class="hero">
       <h1>Satu Pasar, Banyak Peluang</h1>
-      <p>Daftar & jualan 100% gratis. Tanya & nego dulu, lalu transaksi ke WhatsApp.</p>
+      <p>Pendaftaran dan publikasi iklan 100% gratis. Silakan berdiskusi dan ajukan penawaran terlebih dahulu, lalu lanjutkan transaksi secara langsung melalui kontak penjual.</p>
       <div class="sb">
         <input id="qIn" placeholder="Cari barang, merek, toko, atau kota..." oninput="renProd()" />
         <select id="cSel" onchange="renProd()">
@@ -88,217 +45,100 @@
         </select>
       </div>
     </div>
+
+    <div class="intro-box">
+      <strong>Pendahuluan:</strong> Selamat datang di <strong>KENCANAMARKET</strong>, platform penyedia sarana informasi jual dan beli yang mempertemukan penjual serta pembeli secara langsung. KENCANAMARKET hanya berperan sebagai penyedia ruang promosi dan direktori niaga; segala kesepakatan harga, pemeriksaan barang, metode pembayaran, serta ketelitian transaksi sepenuhnya menjadi tanggung jawab masing-masing penjual dan pembeli.
+    </div>
+
     <div id="storeBanner" class="pcard hid" style="background:#ecfdf5;display:flex;justify-content:space-between;align-items:center">
       <div><small>Etalase Toko:</small><br><strong id="storeBannerName" style="color:#0f766e"></strong></div>
       <button class="btn b-out" style="width:auto;margin:0" onclick="clearStoreFilter()">← Semua Produk</button>
     </div>
-    <div class="ad"><small>IKLAN SPONSOR</small><div id="adBox">Ruang Iklan Online Otomatis (Klik "📢 Pasang Iklan" untuk beriklan)</div></div>
-    <div class="st"><span>Daftar Produk</span><span id="pCnt"></span></div>
+
+    <div class="ad"><small>IKLAN SPONSOR</small><div id="adBox">Ruang Iklan Sponsor & Google AdSense (Klik menu "📢 Pasang Iklan" untuk informasi tarif dan pemesanan)</div></div>
+    <div class="st"><span>Daftar Produk & Jasa</span><span id="pCnt">Memuat...</span></div>
     <div class="grid" id="pGrid"></div>
   </div>
-  <div id="t-news" class="hid"><div class="st"><span>Kabar & Promo</span><button class="btn b-wa" style="width:auto" onclick="openPost()">+ Posting</button></div><div id="postList"></div></div>
-  <div id="t-rank" class="hid"><div class="st"><span>Peringkat Toko Terbaik</span></div><div id="rankList"></div></div>
-  <div id="t-priv" class="hid"><div class="pcard"><h3>Privasi & Ketentuan</h3><p style="font-size:.88rem;margin-top:6px">1. Data aman hanya untuk transaksi.<br>2. Pembayaran langsung via WhatsApp.<br>3. Mendukung Google AdSense & Sponsor Lokal.<br>4. Dilarang judol, pornografi, barang ilegal, atau penipuan.</p></div></div>
+
+  <div id="t-news" class="hid">
+    <div class="st"><span>Kabar & Promo</span><button class="btn b-wa" style="width:auto" onclick="openPost()">+ Posting Pengumuman</button></div>
+    <div id="postList"></div>
+  </div>
+
+  <div id="t-rank" class="hid">
+    <div class="st"><span>Peringkat Toko Terbaik</span></div>
+    <div id="rankList"></div>
+  </div>
+
+  <div id="t-priv" class="hid">
+    <div class="pcard">
+      <h3>Privasi, Ketentuan Layanan & Penafian (Disclaimer)</h3>
+      <p style="font-size:.86rem;margin-top:8px;line-height:1.65">
+        1. <strong>Kerahasiaan Data:</strong> Data pengguna dijaga kerahasiaannya dan hanya digunakan untuk keperluan informasi kontak transaksi.<br>
+        2. <strong>Peran Penyedia Sarana Jual Beli:</strong> KENCANAMARKET hanya berperan sebagai penyedia sarana informasi dan ruang publikasi jual beli, serta tidak terlibat dalam pengelolaan pembayaran maupun pengiriman barang.<br>
+        3. <strong>Kesepakatan & Ketelitian Transaksi:</strong> Segala bentuk kesepakatan harga, pemeriksaan kualitas barang, metode pembayaran, dan risiko transaksi sepenuhnya bergantung pada kesepakatan serta ketelitian antara penjual dan pembeli.<br>
+        4. <strong>Dukungan Periklanan Resmi:</strong> Mendukung penayangan iklan resmi melalui <strong>Google AdSense</strong> serta kemitraan <strong>Sponsor Komersial</strong>.<br>
+        5. <strong>Larangan Konten Ilegal:</strong> Dilarang keras memublikasikan konten perjudian daring (<em>judol</em>), pornografi, barang terlarang/ilegal, maupun segala bentuk tindakan penipuan.
+      </p>
+    </div>
+  </div>
 </div>
+
 <div class="mod" id="mAuth"><div class="mbox">
-  <div class="mh"><span>Akun Pengguna (Gratis)</span><button onclick="cm('mAuth')" style="border:none;background:none">✕</button></div>
+  <div class="mh"><span>Akun Pengguna (Gratis)</span><button onclick="cm('mAuth')" style="border:none;background:none;cursor:pointer">✕</button></div>
   <div id="inView" class="hid">
-    <p style="margin-bottom:8px">Halo, <strong id="uName"></strong>!</p>
-    <button class="btn b-out" style="margin-bottom:6px" onclick="cm('mAuth');filterStore(user.name)">🏪 Lihat Dagangan Saya</button>
+    <p style="margin-bottom:8px">Selamat datang, <strong id="uName"></strong>!</p>
+    <button class="btn b-out" style="margin-bottom:6px" onclick="cm('mAuth');filterStore(user.name)">🏪 Lihat Etalase Dagangan Saya</button>
     <button class="btn b-del" onclick="logout()">Keluar Akun</button>
   </div>
   <form id="aForm" onsubmit="doAuth(event)">
-    <div class="fg"><label>Nama / Nama Toko (Wajib saat daftar baru)</label><input id="aName" placeholder="Contoh: Toko Berkah" /></div>
-    <div class="fg"><label>Email</label><input type="email" id="aMail" required placeholder="email@contoh.com" /></div>
-    <div class="fg"><label>Password Akun</label><input type="password" id="aPass" required placeholder="Password..." /></div>
+    <div class="fg"><label>Nama Lengkap / Nama Toko (Wajib saat pendaftaran baru)</label><input id="aName" placeholder="Contoh: Toko Berkah" /></div>
+    <div class="fg"><label>Alamat Email</label><input type="email" id="aMail" required placeholder="email@contoh.com" /></div>
+    <div class="fg"><label>Kata Sandi Akun</label><input type="password" id="aPass" required placeholder="Kata sandi..." /></div>
     <div class="fg"><label>Kota / Kecamatan</label><input id="aLoc" placeholder="Contoh: Subang Kota" /></div>
-    <div class="fg"><label>No. WA Bisnis</label><input id="aWa" placeholder="081234567890" /></div>
+    <div class="fg"><label>Nomor Kontak Bisnis (Telepon / Pesan Singkat)</label><input id="aWa" placeholder="081234567890" /></div>
     <button class="btn b-wa">Masuk / Daftar Sekarang</button>
   </form>
 </div></div>
 
 <div class="mod" id="mSell"><div class="mbox">
-  <div class="mh"><span>Pasang Produk (Gratis)</span><button onclick="cm('mSell')" style="border:none;background:none">✕</button></div>
+  <div class="mh"><span>Publikasikan Produk (Gratis)</span><button onclick="cm('mSell')" style="border:none;background:none;cursor:pointer">✕</button></div>
   <form onsubmit="addProd(event)">
-    <div class="fg"><label>Nama Barang / Produk</label><input id="pName" required /></div>
+    <div class="fg"><label>Nama Barang / Produk *</label><input id="pName" required /></div>
     <div class="row">
       <div class="fg" style="flex:1"><label>Kondisi</label><select id="pCond"><option value="Baru">✨ Baru</option><option value="Bekas">♻️ Bekas</option></select></div>
-      <div class="fg" style="flex:1"><label>Harga</label><select id="pNego"><option value="nego">🤝 Bisa Nego</option><option value="pas">🔒 Harga Pas</option></select></div>
+      <div class="fg" style="flex:1"><label>Status Harga</label><select id="pNego"><option value="nego">🤝 Dapat Dinegosiasikan</option><option value="pas">🔒 Harga Pas</option></select></div>
     </div>
     <div class="row">
       <div class="fg" style="flex:1"><label>Kategori</label><select id="pCat"><option value="Makanan">Makanan</option><option value="Fashion">Fashion</option><option value="Elektronik">Elektronik</option><option value="Kendaraan">Kendaraan</option><option value="Rumah Tangga">Rumah Tangga</option><option value="Jasa">Jasa</option><option value="Lainnya">Lainnya</option></select></div>
-      <div class="fg" style="flex:1"><label>Jenis Barang</label><input id="pType" placeholder="Contoh: HP / Kaos" /></div>
+      <div class="fg" style="flex:1"><label>Jenis Barang</label><input id="pType" placeholder="Contoh: Gawai / Pakaian" /></div>
     </div>
     <div class="row">
-      <div class="fg" style="flex:1"><label>Merek / Brand</label><input id="pBrand" placeholder="Samsung / Lokal" /></div>
-      <div class="fg" style="flex:1"><label>Harga (Rp)</label><input type="number" id="pPrice" required /></div>
+      <div class="fg" style="flex:1"><label>Merek / Brand</label><input id="pBrand" placeholder="Samsung / Produk Lokal" /></div>
+      <div class="fg" style="flex:1"><label>Harga (Rp) *</label><input type="number" id="pPrice" required /></div>
     </div>
     <div class="row">
-      <div class="fg" style="flex:1"><label>Kota / Kecamatan</label><input id="pLoc" required /></div>
-      <div class="fg" style="flex:1"><label>No. WA Toko</label><input id="pWa" required /></div>
+      <div class="fg" style="flex:1"><label>Kota / Kecamatan *</label><input id="pLoc" required /></div>
+      <div class="fg" style="flex:1"><label>Nomor Kontak Penjual *</label><input id="pWa" required placeholder="081234567890" /></div>
     </div>
-    <div class="fg"><label>Foto Produk (Maks 3 foto)</label><input type="file" accept="image/*" multiple onchange="compImgs(event)" /><div id="imgPrevWrap" class="row" style="margin-top:6px"></div></div>
-    <div class="fg"><label>Keterangan Lengkap</label><textarea id="pDesc" rows="2" required></textarea></div>
-    <button class="btn b-wa">Terbitkan Produk</button>
+    <div class="fg"><label>Foto Produk (Maksimal 3 Foto)</label><input type="file" id="pFiles" accept="image/*" multiple onchange="prevImgs(event)" /><div id="imgPrevWrap" class="row" style="margin-top:6px"></div></div>
+    <div class="fg"><label>Keterangan Lengkap *</label><textarea id="pDesc" rows="2" required placeholder="Jelaskan spesifikasi, kondisi, dan ketentuan barang secara jelas..."></textarea></div>
+    <button class="btn b-wa" id="btnPub">Publikasikan Produk</button>
   </form>
+</div></div>
+
+<div class="mod" id="mContact"><div class="mbox">
+  <div class="mh"><span>Informasi Kontak Penjual</span><button onclick="cm('mContact')" style="border:none;background:none;cursor:pointer">✕</button></div>
+  <p style="font-size:.83rem;margin-bottom:8px">Silakan hubungi kontak penjual di bawah ini untuk berdiskusi dan menyepakati transaksi:</p>
+  <div style="background:#f8fafc;border:1px solid var(--b);border-radius:8px;padding:10px;font-size:.85rem;line-height:1.65;margin-bottom:8px">
+    <div><strong>Produk:</strong> <span id="ctProd"></span></div>
+    <div><strong>Nama Toko / Penjual:</strong> <span id="ctStore"></span></div>
+    <div><strong>Lokasi:</strong> <span id="ctLoc"></span></div>
+    <div><strong>Nomor Kontak:</strong> <span id="ctNum" style="color:var(--p);font-weight:800;font-size:.95rem"></span></div>
+  </div>
+  <p style="font-size:.76rem;color:var(--m);margin-bottom:8px"><em>Catatan: Harap selalu teliti dalam memeriksa kondisi barang dan kesepakatan pembayaran sebelum bertransaksi.</em></p>
+  <button class="btn b-wa" onclick="copySellerNum()">📋 Salin Nomor Kontak Penjual</button>
 </div></div>
 
 <div class="mod" id="mCmt"><div class="mbox">
-  <div class="mh"><span id="cTitle">💬 Tanya & Nego</span><button onclick="cm('mCmt')" style="border:none;background:none">✕</button></div>
-  <div id="cList" style="max-height:200px;overflow-y:auto;margin-bottom:8px"></div>
-  <form onsubmit="addCmt(event)"><input type="hidden" id="cProdId" /><div class="fg"><textarea id="cText" rows="2" required placeholder="Tulis pertanyaan atau penawaran..."></textarea></div><button class="btn b-wa">Kirim Komentar</button></form>
-</div></div>
-
-<div class="mod" id="mHelp"><div class="mbox">
-  <div class="mh"><span>🎧 Bantuan AI & Pengaduan</span><button onclick="cm('mHelp')" style="border:none;background:none">✕</button></div>
-  <div style="background:#f8fafc;border:1px solid var(--b);border-radius:8px;padding:8px;margin-bottom:8px">
-    <strong style="font-size:.8rem;color:var(--p)">🤖 Asisten AI Kencanamarket</strong>
-    <div id="aiChat" style="max-height:130px;overflow-y:auto;margin:6px 0"><div class="ai-b">Halo! Tanyakan apa saja soal cara daftar, lupa password, iklan, atau keamanan.</div></div>
-    <div class="row"><input id="aiIn" placeholder="Tanya ke AI..." style="flex:1;padding:6px;border:1px solid var(--b);border-radius:6px" /><button class="btn b-wa" style="width:auto;margin:0" onclick="askAI()">Tanya</button></div>
-  </div>
-  <form onsubmit="sendComp(event)">
-    <div class="fg"><label>Nama Toko & Email / No. WA</label><input id="cpFrom" required /></div>
-    <div class="fg"><label>Isi Pengaduan / Reset Password</label><textarea id="cpMsg" rows="2" required></textarea></div>
-    <div class="row"><button type="submit" class="btn b-wa">Kirim ke Admin</button><button type="button" class="btn b-out" onclick="mailAdmin()">✉️ Via Email</button></div>
-  </form>
-</div></div>
-
-<div class="mod" id="mPost"><div class="mbox"><div class="mh"><span>Buat Pengumuman</span><button onclick="cm('mPost')" style="border:none;background:none">✕</button></div><form onsubmit="addPost(event)"><div class="fg"><label>Judul</label><input id="bTitle" required /></div><div class="fg"><label>Isi Kabar</label><textarea id="bText" rows="3" required></textarea></div><button class="btn b-wa">Posting</button></form></div></div>
-<div class="mod" id="mRev"><div class="mbox"><div class="mh"><span>Beri Rating Toko</span><button onclick="cm('mRev')" style="border:none;background:none">✕</button></div><p id="rStore" style="font-weight:700;margin-bottom:6px"></p><form onsubmit="addRev(event)"><input type="hidden" id="rTarget" /><div class="fg"><label>Bintang</label><select id="rStar"><option value="5">★★★★★ (5)</option><option value="4">★★★★☆ (4)</option><option value="3">★★★☆☆ (3)</option><option value="2">★★☆☆☆ (2)</option><option value="1">★☆☆☆☆ (1)</option></select></div><div class="fg"><label>Komentar</label><textarea id="rCom" rows="2" required></textarea></div><button class="btn b-wa">Kirim Rating</button></form></div></div>
-<div class="mod" id="mAds"><div class="mbox">
-  <div class="mh"><span>📢 Pasang Iklan Sponsor</span><button onclick="cm('mAds')" style="border:none;background:none">✕</button></div>
-  <p style="font-size:.86rem;line-height:1.5;margin-bottom:10px">Promosikan produk, toko, atau jasa Anda di ruang iklan utama <strong>KENCANAMARKET</strong> agar dilihat ribuan pembeli lokal.</p>
-  <div style="background:#f0fdf4;border:1px solid #bbf7d0;padding:10px;border-radius:8px;font-size:.82rem;margin-bottom:10px">✅ Penayangan spanduk di halaman utama<br>✅ Bebas pilih durasi harian / mingguan / bulanan<br>✅ Pembayaran resmi hanya melalui konfirmasi WA Admin</div>
-  <button class="btn b-wa" onclick="waAdmin()">💬 Tanya Paket & Pasang Iklan via WA Admin</button>
-</div></div>
-<div class="mod" id="mAdm"><div class="mbox">
-  <div class="mh"><span>🔒 Panel Kendali Admin</span><button onclick="cm('mAdm')" style="border:none;background:none">✕</button></div>
-  <div id="admLog">
-    <p style="font-size:.85rem;margin-bottom:6px">PIN Admin (Default: <strong>admin123</strong>)</p>
-    <div class="fg"><input type="password" id="admPin" placeholder="Masukkan PIN..." /></div>
-    <button class="btn b-wa" onclick="logAdm()">Buka Panel</button>
-  </div>
-  <div id="admDash" class="hid">
-    <div class="fg" style="background:#fefce8;padding:8px;border-radius:8px"><label>🔑 Ganti PIN Admin</label><div class="row"><input id="newPin" placeholder="PIN baru..." style="flex:1" /><button class="btn b-wa" style="width:auto;margin:0" onclick="chgPin()">Ubah</button></div></div>
-    <div class="fg" style="background:#ecfdf5;padding:8px;border-radius:8px"><label>🏦 Rekening, Email & WA Admin</label><input id="bName" placeholder="Bank / E-Wallet" style="margin-bottom:4px" /><input id="bNo" placeholder="Nomor Rekening" style="margin-bottom:4px" /><input id="bOwn" placeholder="Atas Nama" style="margin-bottom:4px" /><input id="bWa" placeholder="No. WA Admin" style="margin-bottom:4px" /><input type="email" id="bMail" placeholder="Email Admin" /><button class="btn b-wa" onclick="saveBank()">Simpan Data Admin</button></div>
-    <div class="fg" style="background:#f8fafc;padding:8px;border-radius:8px"><label>💰 Kode Iklan AdSense</label><textarea id="adCode" rows="2"></textarea><button class="btn b-wa" onclick="saveAd()">Simpan Iklan</button></div>
-    <h4 style="margin:8px 0 4px">📩 Pengaduan (<span id="cpCnt">0</span>)</h4><div id="admComps"></div>
-    <h4 style="margin:8px 0 4px">👥 Pendaftar (<span id="uCnt">0</span>)</h4><div id="admUsers"></div>
-    <h4 style="margin:8px 0 4px">📦 Produk</h4><div id="admProds"></div>
-    <h4 style="margin:8px 0 4px">🚩 Laporan (<span id="rCnt">0</span>)</h4><div id="admReps"></div>
-  </div>
-</div></div>
-<script>
-const sg=(k,f)=>{try{const i=localStorage.getItem(k);return i?JSON.parse(i):f}catch(e){return f}};
-const ss=(k,v)=>{try{localStorage.setItem(k,JSON.stringify(v))}catch(e){}};
-const esc=s=>String(s||"").replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]));
-const hashStr=s=>btoa(unescape(encodeURIComponent("KM_"+s)));
-const terlarang=["judol","judi","slot","gacor","togel","sbobet","maxwin","zeus","pragmatic","bokep","porno","pornografi","bugil","telanjang","vcs","open bo","narkoba","sabu","ganja","penipu"];
-const kataKasar=["anjing","babi","bangsat","kontol","memek","jembut","ngentot","tolol","goblok","bego","idiot","brengsek","keparat","bajingan","setan","iblis","kampret","tai","taek","asu","jancok","cok","cuk","perek","lonte","pelacur","sialan","bacot"];
-function cekAman(teks){
-  const t=String(teks||"").toLowerCase();
-  if(terlarang.some(k=>t.includes(k))){bunyiNotif('warn');alert("🚫 DITOLAK: Konten mengandung unsur terlarang (judol/pornografi/ilegal)!");return false}
-  if(kataKasar.some(k=>new RegExp("\\b"+k+"\\b","i").test(t))){
-    if(user){
-      user.warn=(user.warn||0)+1;
-      const idx=users.findIndex(u=>u.id==user.id);
-      if(idx>-1)users[idx].warn=user.warn;
-      if(user.warn>=3){
-        if(idx>-1)users[idx].blk=true;
-        save();logout();
-        bunyiNotif('warn');alert("🚫 AKUN DIBLOKIR OTOMATIS: Anda telah 3 kali berkata kasar dan melanggar aturan sopan santun Kencanamarket!");
-        return false;
-      }
-      save();
-      bunyiNotif('warn');alert("⚠️ PERINGATAN ("+user.warn+"/3): Dilarang berkata kasar atau menghina di Kencanamarket! Akun akan diblokir otomatis pada peringatan ke-3.");
-    }else{
-      bunyiNotif('warn');alert("⚠️ PERINGATAN: Harap gunakan bahasa yang sopan!");
-    }
-    return false;
-  }
-  return true;
-}
-let lockUntil=0,failCount=0;
-function cekKunci(){
-  if(Date.now()<lockUntil){alert("🛡️ Tunggu "+Math.ceil((lockUntil-Date.now())/1000)+" detik.");return true}
-  return false;
-}
-function catatSalah(){
-  failCount++;
-  if(failCount>=3){lockUntil=Date.now()+300000;failCount=0;alert("🛡️ Dikunci 5 menit karena 3x salah sandi/PIN!")}
-}
-let prods=sg('km_p',[{id:1,store:"Toko Resmi Kencanamarket",off:true,sold:false,nego:true,cond:"Baru",type:"Kopi",brand:"Kencana",name:"Paket Kopi Arabika 250gr",price:45000,cat:"Makanan",loc:"Subang, Jawa Barat",wa:"6281234567890",imgs:[],desc:"Kopi sangrai segar pilihan petani lokal.",t:Date.now()}]);
-let posts=sg('km_b',[{store:"Toko Resmi Kencanamarket",title:"Selamat Datang!",text:"Daftar & jualan 100% gratis tanpa potongan.",d:"Hari ini"}]);
-let revs=sg('km_r',[{store:"Toko Resmi Kencanamarket",user:"Budi",star:5,com:"Respon cepat & mantap!"}]);
-let cmts=sg('km_c',[{pid:1,user:"Siti",txt:"Kak, kalau ambil 5 bungkus bisa kurang harganya?",t:"Baru saja"}]);
-let reps=sg('km_l',[]),comps=sg('km_cp',[]),users=sg('km_u',[]),inter=sg('km_i',[]),user=sg('km_cu',null),admHash=sg('km_pin_v2',hashStr("admin123"));
-let bank=sg('km_bk',{bank:"Belum diatur",no:"-",own:"Admin Kencanamarket",wa:"6281234567890",mail:"admin@kencanamarket.id"}),cImgs=[],imgIdx={},storeFilter="";
-const save=()=>{ss('km_p',prods);ss('km_b',posts);ss('km_r',revs);ss('km_c',cmts);ss('km_l',reps);ss('km_cp',comps);ss('km_u',users);ss('km_i',inter)};
-function om(id){document.getElementById(id).classList.add('open')}
-function cm(id){document.getElementById(id).classList.remove('open')}
-function tab(t,b){
-  document.querySelectorAll('.nb').forEach(x=>x.classList.remove('act'));
-  if(b)b.classList.add('act');
-  ['home','news','rank','priv'].forEach(x=>document.getElementById('t-'+x).classList.add('hid'));
-  if(t=='home'||t=='new'){document.getElementById('t-home').classList.remove('hid');renProd(t=='new')}
-  else{document.getElementById('t-'+t).classList.remove('hid');if(t=='news')renPost();if(t=='rank')renRank()}
-}
-function filterStore(s){storeFilter=s;document.getElementById('storeBanner').classList.remove('hid');document.getElementById('storeBannerName').innerText=s;tab('home');renProd()}
-function clearStoreFilter(){storeFilter="";document.getElementById('storeBanner').classList.add('hid');renProd()}
-function rating(s){const r=revs.filter(x=>x.store==s);if(!r.length)return{a:"Baru",c:0,sc:0};const a=(r.reduce((x,y)=>x+Number(y.star),0)/r.length).toFixed(1);return{a,c:r.length,sc:Number(a)}}
-function nextImg(pid,tot){imgIdx[pid]=((imgIdx[pid]||0)+1)%tot;renProd()}
-function renProd(nw=false){
-  const q=document.getElementById('qIn').value.toLowerCase(),c=document.getElementById('cSel').value;
-  let l=prods.filter(p=>(!storeFilter||p.store==storeFilter)&&(p.name.toLowerCase().includes(q)||p.store.toLowerCase().includes(q)||(p.loc||"").toLowerCase().includes(q)||(p.brand||"").toLowerCase().includes(q))&&(c=="Semua"||p.cat==c));
-  l.sort((a,b)=>nw?(b.t-a.t):((Number(a.sold||0)-Number(b.sold||0))||(Number(b.off)-Number(a.off))||(b.t-a.t)));
-  document.getElementById('pCnt').innerText=l.length+" produk";
-  document.getElementById('pGrid').innerHTML=l.map(p=>{
-    const rt=rating(p.store),can=inter.includes(p.store),cc=cmts.filter(x=>x.pid==p.id).length;
-    const isMine=user&&user.name.toLowerCase()==p.store.toLowerCase(),pics=p.imgs||(p.img?[p.img]:[]),cur=pics[imgIdx[p.id]||0];
-    const s1=esc(p.store).replace(/'/g,"\\'"),s2=esc(p.name).replace(/'/g,"\\'");
-    const topBtn=isMine?`<div class="row"><button class="btn b-sold" onclick="togSold(${p.id})">${p.sold?'🔄 Buka Stok':'✅ Tandai Terjual'}</button><button class="btn b-del" style="width:auto" onclick="delOwn(${p.id})">🗑️</button></div>`:(p.sold?`<button class="btn b-off" disabled>Sudah Terjual</button>`:`<button class="btn b-wa" onclick="beli('${s1}','${s2}','${esc(p.wa)}')">💬 Beli via WhatsApp</button>`);
-    return`<div class="card"><div class="cimg-wrap">${cur?`<img src="${cur}" class="cimg"/>`:`<div class="cimg">📦 ${esc(p.cat)}</div>`}${p.sold?'<div class="sold-tag">SOLD OUT</div>':''}${pics.length>1?`<button class="gal-btn" onclick="nextImg(${p.id},${pics.length})">📷 ${(imgIdx[p.id]||0)+1}/${pics.length}</button>`:''}</div><div class="cb">${p.sold?'<span class="bg bg-s">SOLD</span>':''}${p.off?'<span class="bg">✓ RESMI</span>':''}<span class="bg ${p.cond=='Bekas'?'bg-b':'bg-c'}">${esc(p.cond||'Baru')}</span>${p.nego&&!p.sold?'<span class="bg bg-n">🤝 NEGO</span>':''}<div style="font-weight:700">${esc(p.name)}</div><div class="pr">Rp ${Number(p.price).toLocaleString('id-ID')}</div><div style="font-size:.74rem;color:#475569">🏷️ ${esc(p.brand||'-')} • ${esc(p.type||p.cat)}</div><div style="font-size:.78rem;color:#64748b">🏪 <span class="slink" onclick="filterStore('${s1}')">${esc(p.store)}</span> • <span class="star">★ ${rt.a}</span></div><div style="font-size:.75rem;color:#0f766e">📍 ${esc(p.loc||'Indonesia')}</div><p style="font-size:.8rem;margin:5px 0">${esc(p.desc)}</p>${topBtn}<div class="row"><button class="btn b-out" onclick="openCmt(${p.id})">💬 Tanya/Nego (${cc})</button><button class="btn b-out" onclick="openRev('${s1}')">${can?'★ Rating':'🔒 Rating'}</button><button class="btn b-del" style="width:38px" onclick="lapor('${s2}','${s1}')">🚩</button></div></div></div>`;
-  }).join('');
-}
-function togSold(id){const i=prods.findIndex(p=>p.id==id);if(i>-1){prods[i].sold=!prods[i].sold;save();renProd()}}
-function delOwn(id){if(confirm("Hapus produk Anda?")){prods=prods.filter(p=>p.id!=id);save();renProd()}}
-function openCmt(pid){const p=prods.find(x=>x.id==pid);if(!p)return;document.getElementById('cTitle').innerText="💬 "+p.name;document.getElementById('cProdId').value=pid;renCmt(pid);om('mCmt')}
-function renCmt(pid){const p=prods.find(x=>x.id==pid),l=cmts.filter(x=>x.pid==pid);document.getElementById('cList').innerHTML=l.length?l.map(c=>`<div class="cmt"><strong>${esc(c.user)}</strong> ${p&&c.user.toLowerCase()==p.store.toLowerCase()?'<span class="bg">PEDAGANG</span>':''} <small>• ${esc(c.t)}</small><div>${esc(c.txt)}</div></div>`).join(''):'<small>Belum ada komentar.</small>'}
-function addCmt(e){e.preventDefault();if(!user){alert("Masuk akun dulu.");om('mAuth');return}const pid=Number(document.getElementById('cProdId').value),txt=document.getElementById('cText').value.trim();if(!txt||!cekAman(txt))return;cmts.push({pid,user:user.name,txt,t:new Date().toLocaleTimeString('id-ID',{hour:'2-digit',minute:'2-digit'})});save();document.getElementById('cText').value="";renCmt(pid);renProd()}
-function askAI(){const inp=document.getElementById('aiIn'),q=inp.value.trim();if(!q)return;const box=document.getElementById('aiChat');box.innerHTML+=`<div class="ai-u">${esc(q)}</div>`;let ans="Silakan isi form pengaduan di bawah ini untuk bantuan langsung dari Admin.";const ql=q.toLowerCase();if(ql.includes("lupa")||ql.includes("password")||ql.includes("sandi"))ans="Isi Nama Toko, Email, dan No. WA pada form di bawah. Admin akan mereset password dan mengirimkannya ke WA Anda.";else if(ql.includes("daftar")||ql.includes("jual")||ql.includes("gratis"))ans="Daftar akun dan jualan di Kencanamarket 100% GRATIS! Klik menu Akun lalu klik + Jual.";else if(ql.includes("iklan"))ans="Klik menu Pasang Iklan untuk melihat nomor rekening Admin dan konfirmasi transfer via WA.";setTimeout(()=>{box.innerHTML+=`<div class="ai-b">🤖 ${ans}</div>`;box.scrollTop=box.scrollHeight},250);inp.value=""}
-function sendComp(e){e.preventDefault();const f=document.getElementById('cpFrom').value,m=document.getElementById('cpMsg').value;if(!cekAman(f+" "+m))return;comps.unshift({id:Date.now(),from:f,msg:m,t:new Date().toLocaleString('id-ID')});save();e.target.reset();alert("Terkirim ke Panel Admin!")}
-function mailAdmin(){const f=document.getElementById('cpFrom').value||"Pengguna",m=document.getElementById('cpMsg').value||"";window.open(`mailto:${bank.mail||'admin@kencanamarket.id'}?subject=${encodeURIComponent("Pengaduan - "+f)}&body=${encodeURIComponent(m)}`,'_blank')}
-function beli(s,n,w){let cw=String(w).replace(/\D/g,'');if(cw.startsWith('0'))cw='62'+cw.slice(1);if(!inter.includes(s)){inter.push(s);save();renProd()}window.open(`https://wa.me{cw}?text=${encodeURIComponent(`Halo ${s}, saya mau pesan *${n}* di Kencanamarket.`)}`,'_blank')}
-function openRev(s){if(!user){alert("Masuk akun dulu.");om('mAuth');return}if(user.name.toLowerCase()==s.toLowerCase()){alert("Tidak bisa menilai toko sendiri.");return}if(!inter.includes(s)){alert("Klik Beli via WhatsApp dulu sebelum memberi rating.");return}document.getElementById('rStore').innerText="Toko: "+s;document.getElementById('rTarget').value=s;om('mRev')}
-function addRev(e){e.preventDefault();const com=document.getElementById('rCom').value;if(!cekAman(com))return;revs.push({store:document.getElementById('rTarget').value,user:user.name,star:Number(document.getElementById('rStar').value),com});save();cm('mRev');renProd();alert("Rating terkirim!")}
-function compImgs(e){cImgs=[];const wrap=document.getElementById('imgPrevWrap');wrap.innerHTML="";[...e.target.files].slice(0,3).forEach(f=>{const r=new FileReader();r.onload=ev=>{const i=new Image();i.onload=()=>{const c=document.createElement('canvas'),sc=Math.min(1,480/i.width);c.width=i.width*sc;c.height=i.height*sc;c.getContext('2d').drawImage(i,0,0,c.width,c.height);const d=c.toDataURL('image/jpeg',0.65);cImgs.push(d);wrap.innerHTML+=`<img src="${d}" style="width:31%;height:70px;object-fit:cover;border-radius:6px"/>`};i.src=ev.target.result};r.readAsDataURL(f)})}
-function openSell(){if(!user){alert("Masuk/daftar akun dulu.");om('mAuth');return}if(user.wa)document.getElementById('pWa').value=user.wa;if(user.loc)document.getElementById('pLoc').value=user.loc;om('mSell')}
-function addProd(e){e.preventDefault();const nm=document.getElementById('pName').value,ds=document.getElementById('pDesc').value;if(!cekAman(nm+" "+ds))return;prods.unshift({id:Date.now(),store:user.name,off:false,sold:false,cond:document.getElementById('pCond').value,nego:document.getElementById('pNego').value=='nego',name:nm,price:document.getElementById('pPrice').value,cat:document.getElementById('pCat').value,type:document.getElementById('pType').value,brand:document.getElementById('pBrand').value,loc:document.getElementById('pLoc').value,wa:document.getElementById('pWa').value,imgs:[...cImgs],desc:ds,t:Date.now()});save();cImgs=[];document.getElementById('imgPrevWrap').innerHTML="";e.target.reset();cm('mSell');renProd();alert("Produk tayang!")}
-function renPost(){document.getElementById('postList').innerHTML=posts.map(p=>`<div class="pcard"><strong>🏪 ${esc(p.store)}</strong> <small>(${esc(p.d)})</small><div style="font-weight:700;margin:4px 0">${esc(p.title)}</div><p style="font-size:.88rem">${esc(p.text)}</p></div>`).join('')}
-function openPost(){if(!user){om('mAuth');return}om('mPost')}
-function addPost(e){e.preventDefault();const tt=document.getElementById('bTitle').value,tx=document.getElementById('bText').value;if(!cekAman(tt+" "+tx))return;posts.unshift({store:user.name,title:tt,text:tx,d:"Baru saja"});save();e.target.reset();cm('mPost');renPost()}
-function renRank(){const st=[...new Set(prods.map(p=>p.store))].map(s=>({s,...rating(s)})).sort((a,b)=>b.sc-a.sc);document.getElementById('rankList').innerHTML=st.map((x,i)=>`<div class="pcard" style="display:flex;justify-content:space-between"><div><strong>#${i+1} ${esc(x.s)}</strong><br><small>${x.c} ulasan</small></div><div class="star">★ ${x.a}</div></div>`).join('')}
-function lapor(n,s){const r=prompt("Alasan lapor:");if(r&&cekAman(r)){reps.push({n,s,r});save();alert("Laporan terkirim.")}}
-function upUI(){const b=document.getElementById('uBtn');if(user){b.innerText="👤 "+user.name.split(' ');document.getElementById('aForm').classList.add('hid');document.getElementById('inView').classList.remove('hid');document.getElementById('uName').innerText=user.name}else{b.innerText="👤 Akun";document.getElementById('aForm').classList.remove('hid');document.getElementById('inView').classList.add('hid')}}
-function doAuth(e){e.preventDefault();if(cekKunci())return;const em=document.getElementById('aMail').value.trim().toLowerCase(),pw=document.getElementById('aPass').value,nm=document.getElementById('aName').value.trim();if(!cekAman(nm+" "+em))return;const ex=users.find(u=>u.email==em);if(ex){if(ex.blk){alert("Akun diblokir Admin.");return}if(ex.pass&&ex.pass!=hashStr(pw)&&ex.pass!=pw){catatSalah();alert("Password salah!");return}failCount=0;user=ex}else{if(!nm){alert("Isi Nama / Nama Toko.");return}user={id:Date.now(),name:nm,email:em,pass:hashStr(pw),loc:document.getElementById('aLoc').value,wa:document.getElementById('aWa').value,blk:false};users.unshift(user)}ss('km_cu',user);save();upUI();cm('mAuth');renProd()}
-function logout(){user=null;try{localStorage.removeItem('km_cu')}catch(e){}upUI();cm('mAuth');renProd()}
-function logAdm(){if(cekKunci())return;if(hashStr(document.getElementById('admPin').value)==admHash){failCount=0;document.getElementById('admLog').classList.add('hid');document.getElementById('admDash').classList.remove('hid');document.getElementById('bName').value=bank.bank;document.getElementById('bNo').value=bank.no;document.getElementById('bOwn').value=bank.own;document.getElementById('bWa').value=bank.wa;document.getElementById('bMail').value=bank.mail||"";renAdm()}else{catatSalah();alert("PIN salah!")}}
-function chgPin(){const np=document.getElementById('newPin').value.trim();if(np.length<4){alert("Minimal 4 karakter.");return}admHash=hashStr(np);ss('km_pin_v2',admHash);document.getElementById('newPin').value="";alert("PIN diubah!")}
-function saveBank(){bank={bank:document.getElementById('bName').value,no:document.getElementById('bNo').value,own:document.getElementById('bOwn').value,wa:document.getElementById('bWa').value,mail:document.getElementById('bMail').value};ss('km_bk',bank);upBank();alert("Tersimpan!")}
-function upBank(){}
-function waAdmin(){let cw=String(bank.wa).replace(/\D/g,'');if(cw.startsWith('0'))cw='62'+cw.slice(1);window.open(`https://wa.me{cw}?text=${encodeURIComponent("Halo Admin Kencanamarket, saya sudah transfer biaya iklan.")}`,'_blank')}
-function chatUser(w){let cw=String(w).replace(/\D/g,'');if(!cw){alert("Tidak ada WA.");return}if(cw.startsWith('0'))cw='62'+cw.slice(1);window.open(`https://wa.me{cw}`,'_blank')}
-function saveAd(){const c=document.getElementById('adCode').value;if(!cekAman(c))return;ss('km_ad',c);document.getElementById('adBox').innerHTML=c;alert("Iklan tayang!")}
-function renAdm(){document.getElementById('cpCnt').innerText=comps.length;document.getElementById('admComps').innerHTML=comps.length?comps.map(c=>`<div style="padding:4px 0;border-bottom:1px solid #eee;font-size:.8rem"><strong>${esc(c.from)}</strong>: ${esc(c.msg)} <button onclick="delCp(${c.id})">Hapus</button></div>`).join(''):'<small>Kosong.</small>';document.getElementById('uCnt').innerText=users.length;document.getElementById('admUsers').innerHTML=users.length?users.map(u=>`<div style="padding:4px 0;border-bottom:1px solid #eee;font-size:.8rem"><strong>${esc(u.name)}</strong> ${u.blk?'[BLOKIR]':''} (${esc(u.email)})<br><button onclick="chatUser('${esc(u.wa||'')}')">WA</button> <button onclick="rstPw(${u.id})">Reset</button> <button onclick="blkU(${u.id})">${u.blk?'Buka':'Blokir'}</button> <button onclick="delU(${u.id})">Hapus</button></div>`).join(''):'<small>Kosong.</small>';document.getElementById('admProds').innerHTML=prods.map(p=>`<div style="padding:4px 0;border-bottom:1px solid #eee;font-size:.8rem">${esc(p.name)} <button onclick="togOff(${p.id})">${p.off?'Lepas Resmi':'Set Resmi'}</button> <button onclick="delP(${p.id})">Hapus</button></div>`).join('');document.getElementById('rCnt').innerText=reps.length;document.getElementById('admReps').innerHTML=reps.map(r=>`<div style="font-size:.8rem">${esc(r.n)}: ${esc(r.r)}</div>`).join('')}
-function rstPw(id){const u=users.find(x=>x.id==id);if(!u)return;const np=prompt("Password baru untuk "+u.name+":");if(np&&np.length>=4){u.pass=hashStr(np);save();alert("Password direset!")}}
-function delCp(id){comps=comps.filter(x=>x.id!=id);save();renAdm()}
-function blkU(id){const i=users.findIndex(u=>u.id==id);if(i>-1){users[i].blk=!users[i].blk;save();renAdm()}}
-function delU(id){const u=users.find(x=>x.id==id);if(u&&confirm("Hapus akun?")){users=users.filter(x=>x.id!=id);prods=prods.filter(p=>p.store!=u.name);save();renProd();renAdm()}}
-function togOff(id){const i=prods.findIndex(p=>p.id==id);if(i>-1){prods[i].off=!prods[i].off;save();renProd();renAdm()}}
-function delP(id){prods=prods.filter(p=>p.id!=id);save();renProd();renAdm()}
-function bunyiNotif(j){try{const c=new(window.AudioContext||window.webkitAudioContext)(),o=c.createOscillator(),g=c.createGain();o.connect(g);g.connect(c.destination);o.frequency.value=j=='warn'?280:880;g.gain.setValueAtTime(0.2,c.currentTime);o.start();o.stop(c.currentTime+0.25)}catch(e){}}
-upUI();upBank();renProd();
-let tapC=0,tapT;function tapLogo(){tapC++;clearTimeout(tapT);tapT=setTimeout(()=>tapC=0,1500);if(tapC>=5){tapC=0;om('mAdm')}}
-</script>
-</body>
-</html>
+  <div class="mh"><span id="cTitle">💬 Diskusi & Penawaran</span><button onclick="cm('mCmt')" style="border:none;background:none;cursor:pointer">✕</button></div>

@@ -11,7 +11,7 @@
 <body>
 <header>
   <div class="ht">
-    <div class="brand" onclick="tapLogo()"><span>K</span> KENCANAMARKET</div>
+    <div class="brand"><span>K</span> KENCANAMARKET</div>
     <div class="ha"><button id="uBtn" onclick="om('mAuth')">👤 Akun</button> <button class="sell" onclick="openSell()">+ Jual</button></div>
   </div>
 </header>
@@ -61,7 +61,7 @@
   </div>
 
   <div id="t-news" class="hid">
-    <div class="st"><span>Kabar & Promo</span><button class="btn b-wa" style="width:auto" onclick="openPost()">+ Posting Pengumuman</button></div>
+    <div class="st"><span>Kabar & Promo</span><button class="btn b-wa" style="width:auto" onclick="om('mPost')">+ Posting Pengumuman</button></div>
     <div id="postList"></div>
   </div>
 
@@ -86,59 +86,63 @@
 
 <div class="mod" id="mAuth"><div class="mbox">
   <div class="mh"><span>Akun Pengguna (Gratis)</span><button onclick="cm('mAuth')" style="border:none;background:none;cursor:pointer">✕</button></div>
-  <div id="inView" class="hid">
+  <div id="uInBox" class="hid">
     <p style="margin-bottom:8px">Selamat datang, <strong id="uName"></strong>!</p>
     <button class="btn b-out" style="margin-bottom:6px" onclick="cm('mAuth');filterStore(user.name)">🏪 Lihat Etalase Dagangan Saya</button>
     <button class="btn b-del" onclick="logout()">Keluar Akun</button>
   </div>
-  <form id="aForm" onsubmit="doAuth(event)">
+  <div id="uOutBox">
     <div class="fg"><label>Nama Lengkap / Nama Toko (Wajib saat pendaftaran baru)</label><input id="aName" placeholder="Contoh: Toko Berkah" /></div>
-    <div class="fg"><label>Alamat Email</label><input type="email" id="aMail" required placeholder="email@contoh.com" /></div>
-    <div class="fg"><label>Kata Sandi Akun</label><input type="password" id="aPass" required placeholder="Kata sandi..." /></div>
-    <div class="fg"><label>Kota / Kecamatan</label><input id="aLoc" placeholder="Contoh: Subang Kota" /></div>
+    <div class="fg"><label>Alamat Email</label><input type="email" id="aMail" placeholder="email@contoh.com" /></div>
+    <div class="fg"><label>Kata Sandi Akun</label><input type="password" id="aPass" placeholder="Kata sandi..." /></div>
+    <div class="fg"><label>Kota / Kecamatan</label><input id="aCity" placeholder="Contoh: Subang Kota" /></div>
     <div class="fg"><label>Nomor Kontak Bisnis (Telepon / Pesan Singkat)</label><input id="aWa" placeholder="081234567890" /></div>
-    <button class="btn b-wa">Masuk / Daftar Sekarang</button>
-  </form>
+    <button class="btn b-wa" onclick="authUser()">Masuk / Daftar Sekarang</button>
+  </div>
 </div></div>
 
 <div class="mod" id="mSell"><div class="mbox">
   <div class="mh"><span>Publikasikan Produk (Gratis)</span><button onclick="cm('mSell')" style="border:none;background:none;cursor:pointer">✕</button></div>
-  <form onsubmit="addProd(event)">
-    <div class="fg"><label>Nama Barang / Produk *</label><input id="pName" required /></div>
-    <div class="row">
-      <div class="fg" style="flex:1"><label>Kondisi</label><select id="pCond"><option value="Baru">✨ Baru</option><option value="Bekas">♻️ Bekas</option></select></div>
-      <div class="fg" style="flex:1"><label>Status Harga</label><select id="pNego"><option value="nego">🤝 Dapat Dinegosiasikan</option><option value="pas">🔒 Harga Pas</option></select></div>
-    </div>
-    <div class="row">
-      <div class="fg" style="flex:1"><label>Kategori</label><select id="pCat"><option value="Makanan">Makanan</option><option value="Fashion">Fashion</option><option value="Elektronik">Elektronik</option><option value="Kendaraan">Kendaraan</option><option value="Rumah Tangga">Rumah Tangga</option><option value="Jasa">Jasa</option><option value="Lainnya">Lainnya</option></select></div>
-      <div class="fg" style="flex:1"><label>Jenis Barang</label><input id="pType" placeholder="Contoh: Gawai / Pakaian" /></div>
-    </div>
-    <div class="row">
-      <div class="fg" style="flex:1"><label>Merek / Brand</label><input id="pBrand" placeholder="Samsung / Produk Lokal" /></div>
-      <div class="fg" style="flex:1"><label>Harga (Rp) *</label><input type="number" id="pPrice" required /></div>
-    </div>
-    <div class="row">
-      <div class="fg" style="flex:1"><label>Kota / Kecamatan *</label><input id="pLoc" required /></div>
-      <div class="fg" style="flex:1"><label>Nomor Kontak Penjual *</label><input id="pWa" required placeholder="081234567890" /></div>
-    </div>
-    <div class="fg"><label>Foto Produk (Maksimal 3 Foto)</label><input type="file" id="pFiles" accept="image/*" multiple onchange="prevImgs(event)" /><div id="imgPrevWrap" class="row" style="margin-top:6px"></div></div>
-    <div class="fg"><label>Keterangan Lengkap *</label><textarea id="pDesc" rows="2" required placeholder="Jelaskan spesifikasi, kondisi, dan ketentuan barang secara jelas..."></textarea></div>
-    <button class="btn b-wa" id="btnPub">Publikasikan Produk</button>
-  </form>
+  <div class="fg"><label>Nama Barang / Produk *</label><input id="pName" /></div>
+  <div class="row">
+    <div class="fg" style="flex:1"><label>Kondisi</label><select id="pCond"><option value="Baru">✨ Baru</option><option value="Bekas">♻️ Bekas</option></select></div>
+    <div class="fg" style="flex:1"><label>Status Harga</label><select id="pNego"><option value="Dapat Dinegosiasikan">🤝 Dapat Dinegosiasikan</option><option value="Harga Pas">🔒 Harga Pas</option></select></div>
+  </div>
+  <div class="row">
+    <div class="fg" style="flex:1"><label>Kategori</label><select id="pCat"><option value="Makanan">Makanan</option><option value="Fashion">Fashion</option><option value="Elektronik">Elektronik</option><option value="Kendaraan">Kendaraan</option><option value="Rumah Tangga">Rumah Tangga</option><option value="Jasa">Jasa</option><option value="Lainnya">Lainnya</option></select></div>
+    <div class="fg" style="flex:1"><label>Jenis Barang</label><input id="pType" placeholder="Contoh: Gawai / Pakaian" /></div>
+  </div>
+  <div class="row">
+    <div class="fg" style="flex:1"><label>Merek / Brand</label><input id="pBrand" placeholder="Samsung / Produk Lokal" /></div>
+    <div class="fg" style="flex:1"><label>Harga (Rp) *</label><input type="number" id="pPrice" /></div>
+  </div>
+  <div class="row">
+    <div class="fg" style="flex:1"><label>Kota / Kecamatan *</label><input id="pCity" /></div>
+    <div class="fg" style="flex:1"><label>Nomor Kontak Penjual *</label><input id="pWa" placeholder="081234567890" /></div>
+  </div>
+  <div class="fg"><label>Foto Produk (Maksimal 3 Foto)</label><input type="file" id="pImgs" accept="image/*" multiple /></div>
+  <div class="fg"><label>Keterangan Lengkap *</label><textarea id="pDesc" rows="3"></textarea></div>
+  <button class="btn b-wa" onclick="addProd()">Publikasikan Produk</button>
 </div></div>
 
 <div class="mod" id="mContact"><div class="mbox">
   <div class="mh"><span>Informasi Kontak Penjual</span><button onclick="cm('mContact')" style="border:none;background:none;cursor:pointer">✕</button></div>
-  <p style="font-size:.83rem;margin-bottom:8px">Silakan hubungi kontak penjual di bawah ini untuk berdiskusi dan menyepakati transaksi:</p>
-  <div style="background:#f8fafc;border:1px solid var(--b);border-radius:8px;padding:10px;font-size:.85rem;line-height:1.65;margin-bottom:8px">
+  <p style="font-size:.82rem;margin-bottom:8px">Silakan hubungi kontak penjual di bawah ini untuk berdiskusi dan menyepakati transaksi:</p>
+  <div class="pcard" style="background:#f8fafc;font-size:.84rem;line-height:1.6">
     <div><strong>Produk:</strong> <span id="ctProd"></span></div>
     <div><strong>Nama Toko / Penjual:</strong> <span id="ctStore"></span></div>
     <div><strong>Lokasi:</strong> <span id="ctLoc"></span></div>
-    <div><strong>Nomor Kontak:</strong> <span id="ctNum" style="color:var(--p);font-weight:800;font-size:.95rem"></span></div>
+    <div><strong>Nomor Kontak:</strong> <span id="ctNum" style="color:var(--p);font-weight:800"></span></div>
   </div>
   <p style="font-size:.76rem;color:var(--m);margin-bottom:8px"><em>Catatan: Harap selalu teliti dalam memeriksa kondisi barang dan kesepakatan pembayaran sebelum bertransaksi.</em></p>
   <button class="btn b-wa" onclick="copySellerNum()">📋 Salin Nomor Kontak Penjual</button>
 </div></div>
 
 <div class="mod" id="mCmt"><div class="mbox">
-  <div class="mh"><span id="cTitle">💬 Diskusi & Penawaran</span><button onclick="cm('mCmt')" style="border:none;background:none;cursor:pointer">✕</button></div>
+  <div class="mh"><span>💬 Diskusi & Penawaran</span><button onclick="cm('mCmt')" style="border:none;background:none;cursor:pointer">✕</button></div>
+  <div id="cmtList" style="max-height:200px;overflow-y:auto;margin-bottom:8px"></div>
+  <div class="fg"><input id="cmtIn" placeholder="Tulis pertanyaan atau penawaran harga..." /></div>
+  <button class="btn b-wa" onclick="addCmt()">Kirim Komentar</button>
+</div></div>
+
+<div class="mod" id="mAds"><div class="mbox">

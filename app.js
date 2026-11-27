@@ -1,24 +1,12 @@
-const SUPABASE_URL = "https://supabase.co";
-const SUPABASE_KEY = "sb_publishable_5ufmyrtQA91nZhDo5dRsaA_MFg_84aP";
-let sb = null;
-try {
-  if (window.supabase && typeof window.supabase.createClient === "function") {
-    sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
-  }
-} catch (e) {}
-
-const DEFAULT_ADM_HASH = "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9";
-let admHash = localStorage.getItem("km_pin_sha256") || DEFAULT_ADM_HASH;
-
 let prods = JSON.parse(localStorage.getItem("km_prods_cache") || "[]");
-let cmts = [];
+let cmts = JSON.parse(localStorage.getItem("km_cmts_cache") || "[]");
 let users = JSON.parse(localStorage.getItem("km_users") || "[]");
 let revs = JSON.parse(localStorage.getItem("km_revs") || "[]");
 let reps = JSON.parse(localStorage.getItem("km_reps") || "[]");
 let inter = JSON.parse(localStorage.getItem("km_inter") || "[]");
 let user = JSON.parse(localStorage.getItem("km_cu") || "null");
 
-let storeFilter = "", imgIdx = {}, activeCopyContact = "", activeProdId = null, tapCnt = 0;
+let storeFilter = "", imgIdx = {}, activeCopyContact = "", activeProdId = null;
 
 function esc(s) { return String(s || "").replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])); }
 function cekAman(t) { if (/(slot gacor|judol|judi online|togel|sbobet|bokep|porn)/i.test(t)) { alert("Konten terdeteksi melanggar ketentuan."); return false; } return true; }
@@ -34,7 +22,7 @@ function tab(t, el) {
     if (e) e.classList.add("hid");
   });
   if (t === "home" || t === "new") { document.getElementById("t-home").classList.remove("hid"); renProd(t === "new"); }
-  else if (t === "news") { document.getElementById("t-news").classList.remove("hid"); loadPosts(); }
+  else if (t === "news") { document.getElementById("t-news").classList.remove("hid"); }
   else if (t === "rank") { document.getElementById("t-rank").classList.remove("hid"); renRank(); }
   else if (t === "priv") { document.getElementById("t-priv").classList.remove("hid"); }
 }
@@ -45,22 +33,7 @@ function saveLocal() {
   localStorage.setItem("km_reps", JSON.stringify(reps));
   localStorage.setItem("km_inter", JSON.stringify(inter));
   localStorage.setItem("km_prods_cache", JSON.stringify(prods));
-}
-
-async function syncSupabase() {
-  if (!sb) return;
-  try {
-    const [pRes, cRes] = await Promise.all([
-      sb.from("products").select("*").order("created_at", { ascending: false }),
-      sb.from("comments").select("*").order("created_at", { ascending: true })
-    ]);
-    if (!pRes.error && pRes.data) {
-      prods = pRes.data;
-      localStorage.setItem("km_prods_cache", JSON.stringify(prods));
-    }
-    if (!cRes.error && cRes.data) cmts = cRes.data;
-    renProd();
-  } catch (e) {}
+  localStorage.setItem("km_cmts_cache", JSON.stringify(cmts));
 }
 
 function filterStore(s) {
@@ -121,7 +94,7 @@ function renProd(nw = false) {
       : (p.sold ? `<button class="btn b-off" disabled>Sudah Terjual</button>` : `<button class="btn b-wa" onclick="hubungiPenjual(${p.id})">📞 Hubungi Kontak Penjual</button>`);
     return `<div class="card">
       <div class="cimg-wrap">
-        ${cur ? `<img src="${cur}" class="cimg" alt="${esc(p.title)}" loading="lazy"/>` : `<div class="cimg-empty">📦 ${esc(p.category)}</div>`}
+        ${cur ? `<img src="${cur}" class="cimg" alt="${esc(p.title)}"/>` : `<div class="cimg-empty">📦 ${esc(p.category)}</div>`}
         ${p.sold ? '<div class="sold-tag">TERJUAL</div>' : ''}
         ${pics.length > 1 ? `<button class="gal-btn" onclick="nextImg(${p.id},${pics.length})">📷 ${(imgIdx[p.id] || 0) + 1}/${pics.length}</button>` : ''}
       </div>
@@ -139,17 +112,15 @@ function renProd(nw = false) {
   }).join("");
 }
 
-async function togSold(id, status) {
+function togSold(id, status) {
   prods = prods.map(p => p.id == id ? { ...p, sold: status } : p);
   saveLocal(); renProd();
-  if (sb) await sb.from("products").update({ sold: status }).eq("id", id);
 }
 
-async function delOwn(id) {
+function delOwn(id) {
   if (!confirm("Apakah Anda yakin ingin menghapus produk ini?")) return;
   prods = prods.filter(p => p.id != id);
   saveLocal(); renProd();
-  if (sb) await sb.from("products").delete().eq("id", id);
 }
 
 function hubungiPenjual(id) {
@@ -195,3 +166,33 @@ function authUser() {
     if (!name || !contact) return alert("Nama toko/lengkap dan nomor kontak wajib diisi saat pendaftaran baru.");
     user = { name, email, pass, city, contact };
     users.push(user);
+    saveLocal();
+  }
+  localStorage.setItem("km_cu", JSON.stringify(user));
+  syncUserUI();
+  cm("mAuth");
+  alert("Berhasil masuk sebagai " + user.name);
+}
+
+function logout() {
+  user = null;
+  localStorage.removeItem("km_cu");
+  syncUserUI();
+  cm("mAuth");
+}
+
+function openSell() {
+  if (!user) { alert("Silakan masuk atau daftar akun terlebih dahulu sebelum memasang iklan."); return om("mAuth"); }
+  const wEl = document.getElementById("pWa"), cEl = document.getElementById("pCity");
+  if (wEl && !wEl.value) wEl.value = user.contact || "";
+  if (cEl && !cEl.value) cEl.value = user.city || "";
+  om("mSell");
+}
+
+function addProd() {
+  if (!user) return om("mAuth");
+  const title = (document.getElementById("pName")?.value || "").trim();
+  const condition = document.getElementById("pCond")?.value || "Baru";
+  const nego = document.getElementById("pNego")?.value || "Dapat Dinegosiasikan";
+  const category = document.getElementById("pCat")?.value || "Lainnya";
+  const item_type = (document.getElementById("pType")?.value || "").trim();

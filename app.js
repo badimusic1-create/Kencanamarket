@@ -5,7 +5,7 @@ const sb = window.supabase.createClient(SUPABASE_URL, SUPABASE_KEY);
 const DEFAULT_ADM_HASH = "240be518fabd2724ddb6f04eeb1da5967448d7e831c08c8fa822809f74c720a9";
 let admHash = localStorage.getItem("km_pin_sha256") || DEFAULT_ADM_HASH;
 
-let prods = [], posts = [], cmts = [], comps = [];
+let prods = [], posts = [], cmts = [];
 let users = JSON.parse(localStorage.getItem("km_users") || "[]");
 let revs = JSON.parse(localStorage.getItem("km_revs") || "[]");
 let reps = JSON.parse(localStorage.getItem("km_reps") || "[]");
@@ -13,7 +13,7 @@ let inter = JSON.parse(localStorage.getItem("km_inter") || "[]");
 let bank = JSON.parse(localStorage.getItem("km_bk") || '{"bank":"","no":"","own":"","wa":"0812-0000-0000","mail":"admin@kencanamarket.id"}');
 let user = JSON.parse(localStorage.getItem("km_cu") || "null");
 
-let storeFilter = "", imgIdx = {}, activeCopyContact = "", failCount = 0, lockUntil = 0;
+let storeFilter = "", imgIdx = {}, activeCopyContact = "", activeProdId = null, failCount = 0, lockUntil = 0, tapCnt = 0;
 
 function esc(s) { return String(s || "").replace(/[&<>"']/g, m => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[m])); }
 function cekAman(t) { if (/(slot gacor|judol|judi online|togel|sbobet|bokep|porn)/i.test(t)) { alert("Konten terdeteksi melanggar ketentuan."); return false; } return true; }
@@ -44,12 +44,16 @@ function showNotif(msg) {
   el._t = setTimeout(() => el.classList.remove("show"), 4500);
 }
 
-function om(id) { document.getElementById(id).classList.add("open"); }
-function cm(id) { document.getElementById(id).classList.remove("open"); }
+function om(id) { const el = document.getElementById(id); if (el) el.classList.add("open"); }
+function cm(id) { const el = document.getElementById(id); if (el) el.classList.remove("open"); }
+
 function tab(t, el) {
   document.querySelectorAll(".nb").forEach(b => b.classList.remove("act"));
   if (el) el.classList.add("act");
-  ["t-home", "t-news", "t-rank", "t-priv"].forEach(id => document.getElementById(id).classList.add("hid"));
+  ["t-home", "t-news", "t-rank", "t-priv"].forEach(id => {
+    const e = document.getElementById(id);
+    if (e) e.classList.add("hid");
+  });
   if (t === "home" || t === "new") { document.getElementById("t-home").classList.remove("hid"); renProd(t === "new"); }
   else if (t === "news") { document.getElementById("t-news").classList.remove("hid"); loadPosts(); }
   else if (t === "rank") { document.getElementById("t-rank").classList.remove("hid"); renRank(); }
@@ -89,13 +93,35 @@ function initRealtime() {
     .subscribe();
 }
 
-function filterStore(s) { storeFilter = s; document.getElementById("storeBanner").classList.remove("hid"); document.getElementById("storeBannerName").innerText = s; tab("home"); renProd(); }
-function clearStoreFilter() { storeFilter = ""; document.getElementById("storeBanner").classList.add("hid"); renProd(); }
-function rating(s) { const r = revs.filter(x => x.store == s); if (!r.length) return { a: "Baru", c: 0, sc: 0 }; const a = (r.reduce((x, y) => x + Number(y.star), 0) / r.length).toFixed(1); return { a, c: r.length, sc: Number(a) }; }
+function filterStore(s) {
+  storeFilter = s;
+  const sbEl = document.getElementById("storeBanner");
+  if (sbEl) sbEl.classList.remove("hid");
+  const snEl = document.getElementById("storeBannerName");
+  if (snEl) snEl.innerText = s;
+  tab("home");
+  renProd();
+}
+
+function clearStoreFilter() {
+  storeFilter = "";
+  const sbEl = document.getElementById("storeBanner");
+  if (sbEl) sbEl.classList.add("hid");
+  renProd();
+}
+
+function rating(s) {
+  const r = revs.filter(x => x.store == s);
+  if (!r.length) return { a: "Baru", c: 0, sc: 0 };
+  const a = (r.reduce((x, y) => x + Number(y.star), 0) / r.length).toFixed(1);
+  return { a, c: r.length, sc: Number(a) };
+}
+
 function nextImg(pid, tot) { imgIdx[pid] = ((imgIdx[pid] || 0) + 1) % tot; renProd(); }
 
 function renProd(nw = false) {
-  const q = document.getElementById("qIn").value.toLowerCase(), c = document.getElementById("cSel").value;
+  const qEl = document.getElementById("qIn"), cEl = document.getElementById("cSel");
+  const q = qEl ? qEl.value.toLowerCase() : "", c = cEl ? cEl.value : "Semua";
   let l = prods.filter(p => {
     const store = p.seller_name || "", title = p.title || "", loc = p.city || "", brand = p.brand || "";
     return (!storeFilter || store == storeFilter) &&
@@ -103,12 +129,17 @@ function renProd(nw = false) {
       (c == "Semua" || p.category == c);
   });
   if (nw) l = l.slice(0, 12);
-  document.getElementById("pCnt").innerText = l.length + " produk";
+  const cntEl = document.getElementById("pCnt");
+  if (cntEl) cntEl.innerText = l.length + " produk";
+  const grid = document.getElementById("pGrid");
+  if (!grid) return;
+
   if (!l.length) {
-    document.getElementById("pGrid").innerHTML = `<div class="pcard" style="grid-column:1/-1;text-align:center">Belum ada produk yang tersedia. Klik "+ Jual" untuk mulai memasang iklan gratis.</div>`;
+    grid.innerHTML = `<div class="pcard" style="grid-column:1/-1;text-align:center">Belum ada produk yang tersedia. Klik "+ Jual" untuk mulai memasang iklan gratis.</div>`;
     return;
   }
-  document.getElementById("pGrid").innerHTML = l.map(p => {
+
+  grid.innerHTML = l.map(p => {
     const store = p.seller_name || "Penjual", rt = rating(store), can = inter.includes(store);
     const cc = cmts.filter(x => x.product_id == p.id).length;
     const isMine = user && user.name.toLowerCase() == store.toLowerCase();
@@ -152,6 +183,4 @@ function hubungiPenjual(id) {
   activeCopyContact = p.contact || "";
   om("mContact");
 }
-function copySellerNum() { if (!activeCopyContact) return; navigator.clipboard.writeText(activeCopyContact); alert("Nomor kontak penjual (" + activeCopyContact + ") berhasil disalin."); }
-function copyAdmContact() { const c = document.getElementById("admContactShow").innerText; navigator.clipboard.writeText(c); alert("Kontak Admin (" + c + ") berhasil disalin."); }
 
